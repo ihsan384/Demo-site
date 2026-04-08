@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseTrace Admin</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/admin.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell admin-page">
+      <header class="site-header">
+        <a class="brand" href="/">PulseTrace</a>
+        <nav class="site-nav">
+          <a href="/">Landing page</a>
+          <a href="/admin">Admin</a>
+        </nav>
+      </header>
+
+      <main class="section">
+        <div class="section-heading admin-heading">
+          <div>
+            <p class="eyebrow">Admin</p>
+            <h1>Visitor analytics</h1>
+            <p class="section-copy">
+              This dashboard loads the saved contents of
+              <code>visitors.json</code> and shows the newest visits first.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <button class="button button-primary" id="refresh-button" type="button">
+              Refresh data
+            </button>
+            <a class="button button-secondary" href="/">Back to site</a>
+          </div>
+        </div>
+
+        <section class="table-card">
+          <div class="table-summary">
+            <strong id="visitor-count">0 visitors recorded</strong>
+            <span id="admin-status">Loading visitor data...</span>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>IP Address</th>
+                  <th>Timestamp</th>
+                  <th>User-Agent</th>
+                </tr>
+              </thead>
+              <tbody id="visitor-table-body">
+                <tr>
+                  <td colspan="3">Loading records...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

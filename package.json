@@ -1,0 +1,12 @@
+{
+  "name": "visitor-analytics-site",
+  "version": "1.0.0",
+  "description": "A simple Express site that logs homepage visitors and displays them in an admin dashboard.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

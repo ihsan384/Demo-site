@@ -3,72 +3,113 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo site</title>
+    <title>PulseTrace</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="/js/main.js" defer></script>
+    <script src="js/script.js" defer></script>
   </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <h1 class="logo">Analytics</h1>
-        <nav class="nav">
+    <div class="page-shell" id="top">
+      <header class="site-header">
+        <a class="brand" href="./">PulseTrace</a>
+        <nav class="site-nav">
           <a href="#features">Features</a>
           <a href="#status">Status</a>
+          <a href="admin">Admin</a>
         </nav>
-      </div>
-    </header>
+      </header>
 
-    <main>
-      <section class="hero">
-        <div class="container">
-          <h2>Hy hello</h2>
-          <p class="subtitle">Demooooooooo</p>
-          <div class="status-box">
-            <div class="status-item">
-              <span class="label">Server Status</span>
-              <strong id="server-status">Checking...</strong>
+      <main>
+        <section class="section hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Visitor Tracking</p>
+            <h1>Styled homepage, same backend logging.</h1>
+            <p class="section-copy">
+              This landing page now loads its CSS and JavaScript from the
+              <code>public</code> folder using deployment-friendly relative
+              paths, while the Express backend keeps logging visitor IPs and
+              optional browser location data.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="admin">Open admin</a>
+              <a class="button button-secondary" href="#features">
+                See how it works
+              </a>
             </div>
-            <p id="server-message" class="status-msg">Connecting to backend</p>
-            <p id="location-status" class="status-msg location-status">
-              Requesting location access...
+          </div>
+
+          <aside class="hero-panel">
+            <div class="status-card">
+              <span class="status-label">Server Status</span>
+              <strong id="server-status">Checking...</strong>
+              <p id="server-message">Connecting to backend...</p>
+              <p id="location-status" class="location-status">
+                Requesting location access...
+              </p>
+            </div>
+            <article class="info-card">
+              <p class="eyebrow">Saved Data</p>
+              <h3>What each visit stores</h3>
+              <p>
+                IP address, visit time, browser details, and latitude and
+                longitude when the visitor allows geolocation.
+              </p>
+            </article>
+          </aside>
+        </section>
+
+        <section class="section" id="features">
+          <div class="section-heading">
+            <p class="eyebrow">Features</p>
+            <h2>How the homepage works now</h2>
+            <p class="section-copy">
+              The UI is wired to the existing backend without changing the
+              visitor logging route, and the page uses the same visual system as
+              the working admin dashboard.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section class="features" id="features">
-        <div class="container">
-          <h3>How it works</h3>
-          <div class="feature-grid">
-            <div class="feature">
-              <h4>Demo</h4>
-              <p>Demooooooooo</p>
-            </div>
-            <div class="feature">
-              <h4>Demo</h4>
-              <p>Demooooooooo</p>
-            </div>
-            <div class="feature">
-              <h4>Demo</h4>
-              <p>Demooooooooo</p>
+          <div class="card-grid">
+            <article class="info-card">
+              <h3>Reliable asset paths</h3>
+              <p>
+                The homepage loads <code>css/styles.css</code> and
+                <code>js/script.js</code> with relative URLs so it behaves well
+                in production.
+              </p>
+            </article>
+            <article class="info-card">
+              <h3>Graceful geolocation</h3>
+              <p>
+                Location access is requested normally through the browser, and
+                the page keeps working even when access is denied.
+              </p>
+            </article>
+            <article class="info-card">
+              <h3>Admin stays intact</h3>
+              <p>
+                The backend routes and visitor storage stay in place, so the
+                admin dashboard still shows the recorded data.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="status">
+          <div class="contact-card">
+            <p class="eyebrow">Ready</p>
+            <h2>Public UI restored without touching backend behavior.</h2>
+            <p>
+              Open the admin page to review saved visits, or stay here to verify
+              that the homepage status panel updates once the frontend script
+              finishes loading.
+            </p>
+            <div class="contact-links">
+              <a class="button button-primary" href="admin">View admin page</a>
+              <a class="button button-secondary" href="#top">Back to top</a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="cta" id="status">
-        <div class="container">
-          <h3>demo </h3>
-          <p>Demooooooooo</p>
-          <a href="mailto:hello@example.com" class="btn">Contact</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2024 Analytics Demo. Lightweight visitor tracking.</p>
-      </div>
-    </footer>
+        </section>
+      </main>
+    </div>
   </body>
 </html>

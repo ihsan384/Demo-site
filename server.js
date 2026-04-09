@@ -13,9 +13,6 @@ const publicDirectory = path.join(__dirname, "public");
 
 app.use(express.json());
 
-// Serve CSS, JS, and image assets without letting Express auto-handle "/".
-app.use(express.static(publicDirectory, { index: false }));
-
 // Pull the real client IP from a proxy header when available.
 function getVisitorIp(req) {
   const forwardedFor = req.headers["x-forwarded-for"];
@@ -51,6 +48,9 @@ app.get("/", async (req, res, next) => {
     next(error);
   }
 });
+
+// Serve the rest of the public files after "/" so homepage visits still log.
+app.use(express.static(publicDirectory));
 
 // The admin dashboard is served as a separate page.
 app.get("/admin", (req, res) => {

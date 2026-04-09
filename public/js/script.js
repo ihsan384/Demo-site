@@ -2,16 +2,18 @@ const serverStatus = document.getElementById("server-status");
 const serverMessage = document.getElementById("server-message");
 const locationStatus = document.getElementById("location-status");
 
+console.log("Homepage script loaded.");
+
 function setLocationStatus(message) {
   if (locationStatus) {
     locationStatus.textContent = message;
   }
 }
 
-// Check that the frontend can still talk to the backend normally.
+// Check that the homepage can reach the existing backend endpoint.
 async function loadSiteStatus() {
   try {
-    const response = await fetch("/api/site-status");
+    const response = await fetch("api/site-status");
 
     if (!response.ok) {
       throw new Error("Backend request failed.");
@@ -23,13 +25,13 @@ async function loadSiteStatus() {
   } catch (error) {
     serverStatus.textContent = "Unavailable";
     serverMessage.textContent =
-      "The frontend could not reach the backend. Check the server console for details.";
+      "The homepage could not reach the backend. Check the server console for details.";
     console.error(error);
   }
 }
 
 async function sendLocation(latitude, longitude) {
-  const response = await fetch("/api/location", {
+  const response = await fetch("api/location", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +47,7 @@ async function sendLocation(latitude, longitude) {
   }
 }
 
-// Ask the browser for the user's exact location with normal permission handling.
+// Ask the browser for location with the normal permission prompt.
 function requestVisitorLocation() {
   if (!("geolocation" in navigator)) {
     setLocationStatus("Location not supported");

@@ -19,11 +19,21 @@ function createCell(text) {
   return cell;
 }
 
+function formatCoordinate(value) {
+  const numericValue = Number(value);
+
+  if (!Number.isFinite(numericValue)) {
+    return "Not allowed";
+  }
+
+  return numericValue.toFixed(6);
+}
+
 function renderEmptyState(message) {
   const row = document.createElement("tr");
   const cell = document.createElement("td");
 
-  cell.colSpan = 3;
+  cell.colSpan = 5;
   cell.textContent = message;
   row.appendChild(cell);
 
@@ -51,6 +61,8 @@ function renderVisitors(visitors) {
     row.appendChild(createCell(visitor.ipAddress || "Unknown"));
     row.appendChild(createCell(formatTimestamp(visitor.timestamp)));
     row.appendChild(createCell(visitor.userAgent || "Unknown"));
+    row.appendChild(createCell(formatCoordinate(visitor.latitude)));
+    row.appendChild(createCell(formatCoordinate(visitor.longitude)));
 
     tableBody.appendChild(row);
   });

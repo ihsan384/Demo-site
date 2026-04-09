@@ -24,7 +24,8 @@
             <h1>Visitor analytics</h1>
             <p class="section-copy">
               This dashboard loads the saved contents of
-              <code>visitors.json</code> and shows the newest visits first.
+              <code>visitors.json</code> and shows the newest visits first,
+              including exact coordinates when a visitor allows location access.
             </p>
           </div>
           <div class="hero-actions">
@@ -47,12 +48,14 @@
                 <tr>
                   <th>IP Address</th>
                   <th>Timestamp</th>
-                  <th>User-Agent</th>
+                  <th>Device</th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
                 </tr>
               </thead>
               <tbody id="visitor-table-body">
                 <tr>
-                  <td colspan="3">Loading records...</td>
+                  <td colspan="5">Loading records...</td>
                 </tr>
               </tbody>
             </table>
